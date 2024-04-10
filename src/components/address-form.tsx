@@ -93,7 +93,7 @@ const AddressForm = () => {
 
             {
                 state.IPv6Addresses.length ?
-                    <Separator className="h-0.5 my-8" /> : null
+                    <Separator className="my-8" /> : null
             }
         </>
     );

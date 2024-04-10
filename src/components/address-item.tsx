@@ -47,13 +47,13 @@ const AddressItem: React.FC<AddressAlertProps> = ({
                         <Badge variant="outline" className="tracking-wide">Reserved</Badge> : null
                 }
             </AlertTitle>
-            <AlertDescription className='mt-4 flex gap-4 items-center justify-between'>
+            <AlertDescription className='mt-4 flex flex-wrap gap-4 items-center justify-between'>
                 <dl className="flex flex-col gap-4">
                     <div className="flex flex-wrap gap-3 justify-between">
                         <dt>Original IPv6 Address:</dt>
-                        <dd>
+                        <dd className="break-words">
                             <code
-                                className='break-words relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'
+                                className='relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'
                             >
                                 {originalIPv6Address}
                             </code>
@@ -61,9 +61,9 @@ const AddressItem: React.FC<AddressAlertProps> = ({
                     </div>
                     <div className="flex flex-wrap gap-3 justify-between">
                         <dt>Compressed IPv6 Address:</dt>
-                        <dd>
+                        <dd className="break-words">
                             <code
-                                className='break-words relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'
+                                className='relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'
                             >
                                 {compressedIPv6Address}
                             </code>
@@ -86,7 +86,6 @@ const AddressItem: React.FC<AddressAlertProps> = ({
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
-
             </AlertDescription>
         </Alert>
     )

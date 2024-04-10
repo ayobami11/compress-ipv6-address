@@ -69,7 +69,11 @@ const AddressForm = () => {
                             <FormItem>
                                 <FormLabel className={cn(errors.address && "text-red-500")}>IPv6 address</FormLabel>
                                 <FormControl>
-                                    <Input className={cn(errors.address && "focus-visible:ring-red-500")} {...field} />
+                                    <Input
+                                        placeholder="2001:0db8:1111:000a:00b0:0000:9000:0200"
+                                        className={cn(errors.address && "focus-visible:ring-red-500")}
+                                        {...field}
+                                    />
                                 </FormControl>
                                 <FormDescription>
                                     A valid IPv6 address in the <a

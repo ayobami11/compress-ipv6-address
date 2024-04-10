@@ -73,4 +73,7 @@
     body {
       @apply bg-background text-foreground;
     }
+    a {
+      @apply text-blue-500 hover:text-blue-700 hover:underline active:text-orange-500;
+    }
   }

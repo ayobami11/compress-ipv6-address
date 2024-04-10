@@ -2,17 +2,18 @@ import AddressForm from "@/components/address-form";
 import AddressList from "@/components/address-list";
 import ToggleMode from "@/components/toggle-mode";
 
-import { Separator } from "@/components/ui/separator";
-
 export default function Home() {
   return (
     <>
-      <ToggleMode />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <h1>Compress IPv6 Address</h1>
-        <AddressForm />
-        <Separator />
-        <AddressList />
+      <main className="flex min-h-screen flex-col items-center p-16">
+        <div>
+          <div className="flex gap-6 justify-between items-center mb-8">
+            <h1 className="text-3xl font-bold">Compress IPv6 Address</h1>
+            <ToggleMode />
+          </div>
+          <AddressForm />
+          <AddressList />
+        </div>
       </main>
     </>
   );

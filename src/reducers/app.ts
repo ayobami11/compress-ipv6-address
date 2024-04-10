@@ -1,12 +1,19 @@
+export interface IPv6AddressProps {
+    originalIPv6Address: string,
+    compressedIPv6Address: string,
+}
 export interface AppState {
     compressedIPv6Address: string,
-    compressedIPv6Addresses: string[]
+    IPv6Addresses: IPv6AddressProps[]
 
 };
 
 export type AppAction = {
     type: "COMPRESS_ADDRESS",
-    payload: { compressedIPv6Address: string }
+    payload: {
+        originalIPv6Address: string,
+        compressedIPv6Address: string
+    }
 } | {
     type: "GET_COMPRESSED_ADDRESSES"
 };
@@ -20,18 +27,31 @@ export const reducer = (state: AppState, action: AppAction) => {
 
     switch (action.type) {
 
-        case "COMPRESS_ADDRESS": {
-            const compressedIPv6Addresses: string[] = [...state.compressedIPv6Addresses, action.payload.compressedIPv6Address];
-    
-            sessionStorage.setItem("compressedIPv6Addresses", JSON.stringify(compressedIPv6Addresses));
-        }
 
-        case "GET_COMPRESSED_ADDRESSES": {
-            const compressedIPv6Addresses = JSON.parse(sessionStorage.getItem("compressedIPv6Addresses") ?? "[]");
+        case "COMPRESS_ADDRESS": {
+            const { originalIPv6Address, compressedIPv6Address } = action.payload;
+
+            const IPv6Addresses: IPv6AddressProps[] = [
+                ...state.IPv6Addresses, {
+                    originalIPv6Address,
+                    compressedIPv6Address
+                }];
+
+            sessionStorage.setItem("IPv6Addresses", JSON.stringify(IPv6Addresses));
 
             return {
                 ...state,
-                compressedIPv6Addresses
+                compressedIPv6Address: "",
+                IPv6Addresses
+            }
+        }
+
+        case "GET_COMPRESSED_ADDRESSES": {
+            const IPv6Addresses = JSON.parse(sessionStorage.getItem("IPv6Addresses") ?? "[]");
+
+            return {
+                ...state,
+                IPv6Addresses
             }
         }
 
@@ -43,5 +63,5 @@ export const reducer = (state: AppState, action: AppAction) => {
 
 export const initialState: AppState = {
     compressedIPv6Address: "",
-    compressedIPv6Addresses: [],
+    IPv6Addresses: [],
 }

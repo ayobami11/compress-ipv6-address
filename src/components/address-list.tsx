@@ -15,14 +15,15 @@ const AddressList = () => {
     }, [dispatch]);
 
     return (
-        <ul className="flex flex-col gap-2 my-4">
+        <ul className="flex flex-col gap-3 my-4">
             {React.Children.toArray(
-                state.compressedIPv6Addresses.map((compressedAddress) => (
+                state.IPv6Addresses.map(({ originalIPv6Address, compressedIPv6Address }) => (
                     <li>
                         <AddressItem
-                            description={compressedAddress}
+                            originalIPv6Address={originalIPv6Address}
+                            compressedIPv6Address={compressedIPv6Address}
                             variant={
-                                (compressedAddress.startsWith("fc00") || compressedAddress.startsWith("fd00")) ?
+                                (compressedIPv6Address.startsWith("fc00") || compressedIPv6Address.startsWith("fd00")) ?
                                     "private" : "public"
                             }
                         />

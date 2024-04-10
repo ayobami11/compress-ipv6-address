@@ -49,21 +49,21 @@ const AddressItem: React.FC<AddressAlertProps> = ({
             </AlertTitle>
             <AlertDescription className='mt-4 flex gap-4 items-center justify-between'>
                 <dl className="flex flex-col gap-4">
-                    <div className="flex gap-3 justify-between">
+                    <div className="flex flex-wrap gap-3 justify-between">
                         <dt>Original IPv6 Address:</dt>
                         <dd>
                             <code
-                                className='relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'
+                                className='break-words relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'
                             >
                                 {originalIPv6Address}
                             </code>
                         </dd>
                     </div>
-                    <div className="flex gap-3 justify-between">
+                    <div className="flex flex-wrap gap-3 justify-between">
                         <dt>Compressed IPv6 Address:</dt>
                         <dd>
                             <code
-                                className='relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'
+                                className='break-words relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'
                             >
                                 {compressedIPv6Address}
                             </code>

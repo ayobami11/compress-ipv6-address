@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <main className="flex min-h-screen flex-col items-center">
-        <div className="py-16 w-[90%] mx-auto">
+        <div className="py-16 w-[90%] mx-auto max-w-lg">
           <div className="flex gap-6 justify-between items-center mb-8">
             <h1 className="text-3xl font-bold">Compress IPv6 Address</h1>
             <ToggleMode />
